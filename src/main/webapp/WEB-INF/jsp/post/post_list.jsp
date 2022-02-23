@@ -2,30 +2,38 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div id="post-list-box">
-	<table class="table text-center" id="post-list">
-		<thead>
-			<tr>
-				<th class="col-2">No.</th>
-				<th class="col-6">제목</th>
-				<th class="col-2">작성일</th>
-				<th class="col-2">수정일</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="post" items="${postList}" varStatus="status">
+<div class="d-flex justify-content-center">
+	<div id="post-list-box">
+		<table class="table table-hover text-center" id="post-list">
+			<thead>
 				<tr>
-					<td class="col-2">${status.count}</td>
-					<td class="col-6"><a href="#">${post.subject}</a></td>
-					<td class="col-2">${post.createdAt}</td>
-					<td class="col-2">${post.updatedAt}</td>
+					<th>No.</th>
+					<th>제목</th>
+					<th>작성일</th>
+					<th>수정일</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<div class="text-center py-3">
-		<a href="#" id="prev-btn" class="pr-5"><< 이전</a>
-		<a href="#" id="next-btn" class="pl-5">다음 >></a>
+			</thead>
+			<tbody>
+				<c:forEach var="post" items="${postList}">
+					<tr>
+						<td class="col-2">${post.id}</td>
+						<td class="col-6"><a href="#">${post.subject}</a></td>
+						<td class="col-2">
+							${post.createdAt}
+							<%-- <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /> --%>
+						</td>
+						<td class="col-2">
+							${post.updatedAt}
+							<%-- <fmt:formatDate value="${post.updatedAt}" pattern="yyyy-MM-dd HH:mm:ss" /> --%>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<div class="text-center py-3 d-none">
+			<a href="#" id="prev-btn" class="pr-5"><< 이전</a>
+			<a href="#" id="next-btn" class="pl-5">다음 >></a>
+		</div>
+		<a href="/post/post_create_view" id="edit-btn" class="btn">글쓰기</a>
 	</div>
-	<button type="button" id="edit-btn" class="btn">글쓰기</button>
 </div>

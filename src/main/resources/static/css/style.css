@@ -6,27 +6,27 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
-    font-family: 'SANGJUDajungdagam';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/SANGJUDajungdagam.woff') format('woff');
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 a {color: inherit; text-decoration: none;}
 a:hover {color: inherit; text-decoration: none;}
-html, body {width: 100%; height: 100%; padding: 0; margin: 0;}
-body {color: #32292f; font-family: 'SANGJUDajungdagam';}
-#wrap {height: 100%; min-height: 100%; padding-bottom: 80px;}
-
+body {color: #32292f; font-family: 'GangwonEdu_OTFBoldA';}
+#wrap {height: 100%;}
 .header {height: 80px; background-color: #99e1d9; text-align: center;}
-.logo {height: 100%; padding: 17px 0;}
+.contents {width: 100%; height: 100%; padding: 50px 0; margin: auto;}
+/* .contents {width: 100%; height: 100%; margin: auto; padding: 50px 0;} */
+footer {padding: 35px 0; background-color: #70ABAF;}
+
+.logo {height: 100%; padding: 17px 0; font-family: 'Cafe24Ssurround';}
 .logo a {font-family: Cafe24Ssurround; color: #32292f; font-size: 34px;}
 .logo a:hover {color: #F0F7F4;}
 .login-info {position: absolute; top: 30px; right: 10%;}
 
-.contents {width: 80%; height: 100%; margin: auto; padding: 50px 0;}
 .user-form tr {height: 60px;}
 .user-form tr th {width: 120px;;}
 .user-form tr td input {height: 40px;}
@@ -36,7 +36,22 @@ body {color: #32292f; font-family: 'SANGJUDajungdagam';}
 #join-btn {background-color: #99e1d9; margin: auto;}
 
 
+#post-list-box {width: 80%;}
 #post-list tr td a:hover {color: #70ABAF;}
 #edit-btn {background-color: #99e1d9; float: right;}
 
-footer {height: 80px; background-color: #70ABAF; position: relative; transform: translateY(-100%);}
+#post-card {width: 800px; border: 1px #DBDBDB solid; border-radius: 5px;}
+.subject-area {border-bottom: 1px #DBDBDB solid;}
+#post-subject {font-size: 40px; font-weight: bold; text-align: center; padding: 10px 0;}
+.post-info {padding: 10px 40px;}
+.writerId {font-size: 20px; font-weight: bold;}
+.post-content-area {padding: 20px;}
+.post-content {font-size: 25px;}
+.img-size {position: relative; width: 720px; height: 400px; margin: auto; overflow: hidden;}
+.img-center {text-align: center; position: absolute; top: 0; right: -200%; bottom: 0; left: -200%;}
+.img {max-width: 100%; max-height: 100%;}
+.edit-option {padding: 0 40px 40px 40px; margin-top: 20px;}
+ 
+#delBtn {background-color: #9d8189; color: #fff;}
+#listBtn {background-color: #d8e2dc;}
+#modifyBtn {background-color: #ffcad4;}
