@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <div class="d-flex justify-content-center">
+	<c:if test="${not empty userId}">
 	<div class="w-50">
 		<h1>글쓰기</h1>
 		
@@ -20,6 +23,7 @@
 			</div>
 		</div>
 	</div>
+	</c:if>
 </div>
 <script>
 $(document).ready(function(){
@@ -81,7 +85,10 @@ $(document).ready(function(){
 				if (data.result == "success") {
 					alert("메모가 저장되었습니다.");
 					location.href = "/post/post_list_view";
-				} 
+				} else {
+					alert(data.errorMessage);
+					location.href = "/user/sign_in_view";
+				}
 			}
 			, error: function(e) {
 				alert("메모 저장에 실패했습니다. 관리자에게 문의해주세요.");

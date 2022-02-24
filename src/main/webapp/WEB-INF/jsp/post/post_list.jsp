@@ -19,12 +19,10 @@
 						<td class="col-2">${post.id}</td>
 						<td class="col-6"><a href="#">${post.subject}</a></td>
 						<td class="col-2">
-							${post.createdAt}
-							<%-- <fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /> --%>
+							<fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" />
 						</td>
 						<td class="col-2">
-							${post.updatedAt}
-							<%-- <fmt:formatDate value="${post.updatedAt}" pattern="yyyy-MM-dd HH:mm:ss" /> --%>
+							<fmt:formatDate value="${post.updatedAt}" pattern="yyyy-MM-dd HH:mm:ss" />
 						</td>
 					</tr>
 				</c:forEach>

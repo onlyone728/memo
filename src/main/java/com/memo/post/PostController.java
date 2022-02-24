@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.memo.post.bo.PostBO;
 import com.memo.post.model.Post;
@@ -49,6 +48,11 @@ public class PostController {
 		return "template/layout";
 	}
 	
+	/**
+	 * 글쓰기 화면
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/post_detail_view")
 	public String postDetailView(
 //			@RequestParam("id") int id,

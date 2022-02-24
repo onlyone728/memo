@@ -1,6 +1,6 @@
 package com.memo.post.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Post {
 	private int id;

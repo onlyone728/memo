@@ -32,6 +32,14 @@ public class PostRestController {
 		return postList;
 	}
 	
+	/**
+	 * 글 등록
+	 * @param subject
+	 * @param content
+	 * @param file
+	 * @param request
+	 * @return
+	 */
 	@PostMapping("/create")
 	public Map<String, Object> createPost(
 			@RequestParam("subject") String subject,
@@ -55,7 +63,7 @@ public class PostRestController {
 		}
 		
 		// TODO: userId, userLoginId, subject, content, file => BO insert 요청
-		
+		postBO.addPost(userId, userLoginId, subject, content, file);
 		
 		return result;
 	}
