@@ -2,10 +2,14 @@ package com.memo.post;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.memo.post.bo.PostBO;
 import com.memo.post.model.Post;
@@ -23,10 +27,14 @@ public class PostController {
 	 * @return
 	 */
 	@RequestMapping("/post_list_view")
-	public String postListView(Model model) {
+	public String postListView(Model model,
+			HttpServletRequest request) {
+		// 글쓴이 정보를 가져오기 위해 세션에서 userId를 꺼낸다.
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute("userId");
 		
 		// DB select postList
-		List<Post> postList = postBO.getPostList();
+		List<Post> postList = postBO.getPostListByUserId(userId);
 		
 		// model.add
 		model.addAttribute("postList", postList);
@@ -49,18 +57,20 @@ public class PostController {
 	}
 	
 	/**
-	 * 글쓰기 화면
+	 * 글내용 상세 화면
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("/post_detail_view")
 	public String postDetailView(
-//			@RequestParam("id") int id,
+			@RequestParam("postId") int postId,
 			Model model) {
 		
-		// DB select by id
+		// DB select by postId
+		Post post = postBO.getPostById(postId);
 		
 		// model.add
+		model.addAttribute("post", post);
 		model.addAttribute("viewName", "post/post_detail");
 		
 		// return String

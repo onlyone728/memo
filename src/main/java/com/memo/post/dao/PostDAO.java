@@ -10,7 +10,9 @@ import com.memo.post.model.Post;
 @Repository
 public interface PostDAO {
 
-	public List<Post> selectPostList();
+	public List<Post> selectPostListByUserId(int userId);
+	
+	public Post selectPostById(int id);
 	
 	// int userId, String userLoginId, String subject, String content, MultipartFile file
 	public void inserPost(

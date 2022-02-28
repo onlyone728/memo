@@ -19,8 +19,12 @@ public class PostBO {
 	@Autowired
 	private FileManagerService fms;
 	
-	public List<Post> getPostList() {
-		return postDAO.selectPostList();
+	public List<Post> getPostListByUserId(int userId) {
+		return postDAO.selectPostListByUserId(userId);
+	}
+	
+	public Post getPostById(int id) {
+		return postDAO.selectPostById(id);
 	}
 	
 	public void addPost(int userId, String userLoginId, String subject, String content, MultipartFile file) {
@@ -34,4 +38,5 @@ public class PostBO {
 		// insert DAO
 		postDAO.inserPost(userId, subject, content, imagePath);
 	}
+	
 }
