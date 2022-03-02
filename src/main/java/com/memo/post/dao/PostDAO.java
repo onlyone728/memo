@@ -20,4 +20,11 @@ public interface PostDAO {
 			@Param("subject") String subject, 
 			@Param("content") String content,
 			@Param("imagePath") String imagePath);
+	
+	public int updatePostByUserIdAndPostId(
+			@Param("userId") int userId, 
+			@Param("postId") int postId, 
+			@Param("subject") String subject, 
+			@Param("content") String content, 
+			@Param("imagePath") String imagePath);
 }

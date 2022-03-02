@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,8 +59,27 @@ public class PostRestController {
 		return result;
 	}
 	
-	@PostMapping("/update")
-	public Map<String, Object> updatePost() {
+	@PutMapping("/update")
+	public Map<String, Object> updatePost(
+			@RequestParam("postId") int postId,
+			@RequestParam("subject") String subject,
+			@RequestParam(value="content", required=false) String content,
+			@RequestParam(value="file", required=false) MultipartFile file,
+			HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute("userId");
+		String userLoginId = (String) session.getAttribute("userLoginId");
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("result", "success");
+		
+		int row = postBO.updatePost(postId, userId, userLoginId, subject, content, file);
+		if (row < 1) {
+			result.put("result", "error");
+			result.put("errorMessage", "메모 수정에 실패했습니다.");
+		}
+		
+		return result;
 	}
 }
