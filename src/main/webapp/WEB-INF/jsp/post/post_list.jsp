@@ -28,10 +28,21 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="text-center py-3 d-none">
-			<a href="#" id="prev-btn" class="pr-5"><< 이전</a>
-			<a href="#" id="next-btn" class="pl-5">다음 >></a>
-		</div>
+		
+		<%-- 페이징 --%>
+		<div class="d-flex justify-content-center py-3">
+			<c:if test="${prevId != 0}">
+				<div>
+					<a href="/post/post_list_view?prevId=${prevId}" id="prev-btn" class="pr-5">&lt;&lt; 이전</a>
+				</div>
+			</c:if>
+			<c:if test="${nextId != 0}">
+				<div>
+					<a href="/post/post_list_view?nextId=${nextId}" id="next-btn" class="pl-5">다음 &gt;&gt;</a>
+				</div>
+			</c:if>
+			</div>
+		
 		<a href="/post/post_create_view" id="edit-btn" class="btn">글쓰기</a>
 	</div>
 </div>

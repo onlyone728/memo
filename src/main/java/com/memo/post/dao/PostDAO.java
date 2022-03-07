@@ -10,7 +10,15 @@ import com.memo.post.model.Post;
 @Repository
 public interface PostDAO {
 
-	public List<Post> selectPostListByUserId(int userId);
+	public List<Post> selectPostListByUserId(
+			@Param("userId") int userId,
+			@Param("direction") String direction,	 
+			@Param("standardId") Integer standardId, 
+			@Param("limit") int limit);
+	
+	public int selectPostListByUserIdAndSort(
+			@Param("userId") int userId,
+			@Param("sort") String sort);
 	
 	public Post selectPostById(int id);
 	
@@ -27,4 +35,8 @@ public interface PostDAO {
 			@Param("subject") String subject, 
 			@Param("content") String content, 
 			@Param("imagePath") String imagePath);
+	
+	public int deletePostByUserIdAndPostId(
+			@Param("userId") int userId, 
+			@Param("postId") int postId);
 }
