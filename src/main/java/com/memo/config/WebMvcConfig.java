@@ -28,6 +28,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor)
 		.addPathPatterns("/**")    // ** 아래 디렉토리까지 확인
-		.excludePathPatterns("/static/**", "/error", "/user/sign_out");  // 권한 검사 하지 않는 path (예외)
+		.excludePathPatterns("/css/**", "/js/**", "/images/**", "/error", "/user/sign_out");  // 권한 검사 하지 않는 path (예외)
 	}
 }
